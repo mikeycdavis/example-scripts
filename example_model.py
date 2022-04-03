@@ -166,4 +166,23 @@ Done! Next steps:
     3. Submit tournament_predictions_{current_round}.csv to the "Upload Predictions" button
 ''')
 
+spinner.start("Submitting Numerai predictions")
+spinner.succeed()
+
+def SubmitPredictions(accountName):
+    public_key = "HSMNVJAP7LXDV5HVSLDHXMEIHALH2UU4"
+    private_key = "PVVU5EUHET5K6K5GIRVBMFYIO43WZRB45QSUWQLWFCSTOLG3JCPBCUPWUO4RYOX6"
+    napi = numerapi.SignalsAPI(public_key, private_key)
+    model_id = napi.get_models()[f'{accountName}']
+    current_round = napi.get_current_round()
+   
+    submission = napi.upload_predictions(f"tournament_predictions_{current_round}.csv", model_id=model_id)
+
+SubmitPredictions("djneetz")
+SubmitPredictions("djsqeetz")
+SubmitPredictions("djbeatz")
+SubmitPredictions("djcleatz")
+SubmitPredictions("djfeatz")
+SubmitPredictions("djteetz")
+
 print(f'done in {(time.time() - start) / 60} mins')
