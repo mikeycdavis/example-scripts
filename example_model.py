@@ -176,8 +176,12 @@ spinner.start("Submitting Numerai predictions")
 spinner.succeed()
 
 numeraiaccounts = ["djneetz", "djsqeetz", "djbeatz", "djcleatz", "djfeatz", "djteetz"]
-    
+count = 1
+numAccounts = len(numeraiaccounts)
+
 for account in numeraiaccounts:
+    print(f'{count} of {numAccounts}')
     SubmitPredictions(account)
+    count = count + 1
 
 print(f'done in {(time.time() - start) / 60} mins')
