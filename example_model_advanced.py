@@ -29,7 +29,9 @@ downsample_full_train = 1
 model_selection_loop = True
 model_config_name = "advanced_example_model"
 
-napi = NumerAPI()
+public_key = "HSMNVJAP7LXDV5HVSLDHXMEIHALH2UU4"
+private_key = "PVVU5EUHET5K6K5GIRVBMFYIO43WZRB45QSUWQLWFCSTOLG3JCPBCUPWUO4RYOX6"
+napi = NumerAPI(public_key, private_key)
 
 current_round = napi.get_current_round()
 
@@ -288,3 +290,21 @@ validation_data["prediction"] = validation_data[best_pred_col].rank(pct=True)
 tournament_data["prediction"] = tournament_data[best_pred_col].rank(pct=True)
 save_prediction(validation_data["prediction"], f"validation_predictions_{current_round}")
 save_prediction(tournament_data["prediction"], f"tournament_predictions_{current_round}")
+
+def SubmitPredictions(accountName):
+    model_id = napi.get_models()[f'{accountName}']
+    current_round = napi.get_current_round()
+   
+    submission = napi.upload_predictions(f"tournament_predictions_{current_round}.csv", model_id=model_id)
+
+spinner.start("Submitting Numerai predictions")
+spinner.succeed()
+
+numeraiaccounts = ["djneetz", "djsqeetz", "djbeatz", "djcleatz", "djfeatz", "djteetz"]
+count = 1
+numAccounts = len(numeraiaccounts)
+
+for account in numeraiaccounts:
+    print(f'{count} of {numAccounts}')
+    SubmitPredictions(account)
+    count = count + 1
