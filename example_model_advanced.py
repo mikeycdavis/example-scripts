@@ -50,6 +50,7 @@ napi.download_dataset("v4/train.parquet")
 napi.download_dataset("v4/validation.parquet")
 napi.download_dataset("v4/live.parquet")
 napi.download_dataset("v4/validation_example_preds.parquet")
+napi.download_dataset("v4/live_example_preds.parquet")
 napi.download_dataset("v4/features.json")
 
 
