@@ -20,8 +20,9 @@ from utils import (
     EXAMPLE_PREDS_COL
 )
 
-
-napi = NumerAPI()
+public_key = "HSMNVJAP7LXDV5HVSLDHXMEIHALH2UU4"
+private_key = "PVVU5EUHET5K6K5GIRVBMFYIO43WZRB45QSUWQLWFCSTOLG3JCPBCUPWUO4RYOX6"
+napi = NumerAPI(public_key, private_key)
 spinner = Halo(text='', spinner='dots')
 
 current_round = napi.get_current_round()
