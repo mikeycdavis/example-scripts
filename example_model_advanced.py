@@ -310,7 +310,7 @@ def SubmitPredictions(accountName):
 spinner.start("Submitting Numerai predictions")
 spinner.succeed()
 
-numeraiaccounts = ["djneetz", "djsqeetz", "djbeatz", "djcleatz", "djfeatz", "djteetz"]
+numeraiaccounts = ["djneetz", "djsqueetz", "djbeatz", "djcleatz", "djfeatz", "djteetz"]
 count = 1
 numAccounts = len(numeraiaccounts)
 
