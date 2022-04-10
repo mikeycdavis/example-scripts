@@ -168,10 +168,7 @@ def SubmitPredictions(accountName):
    
     submission = napi.upload_predictions(f"live_predictions_{current_round}.csv", model_id=model_id)
 
-spinner.start("Submitting Numerai predictions")
-spinner.succeed()
-
-numeraiaccounts = ["djneetz", "djsqeetz", "djbeatz", "djcleatz", "djfeatz", "djteetz"]
+numeraiaccounts = ["djneetz", "djsqueetz", "djbeatz", "djcleatz", "djfeatz", "djteetz"]
 count = 1
 numAccounts = len(numeraiaccounts)
 
